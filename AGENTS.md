@@ -1,26 +1,21 @@
-# Agent Guidelines for al-folio
+# Agent Guidelines for airstream.ing
 
-A simple, clean, and responsive Jekyll theme for academics.
+This is a Jekyll-based academic website (al-folio theme). This document provides build commands, code style guidelines, and development workflow for coding agents.
 
-## Quick Links by Role
+## Quick Links
 
-- **Are you a coding agent?** → Read [`.github/copilot-instructions.md`](.github/copilot-instructions.md) first (tech stack, build, CI/CD, common pitfalls & solutions)
-- **Customizing the site?** → See [`.github/agents/customize.agent.md`](.github/agents/customize.agent.md)
-- **Writing documentation?** → See [`.github/agents/docs.agent.md`](.github/agents/docs.agent.md)
-- **Need setup/deployment help?** → [INSTALL.md](INSTALL.md)
-- **Troubleshooting & FAQ?** → [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Customization & theming?** → [CUSTOMIZE.md](CUSTOMIZE.md)
-- **Quick 5-min start?** → [QUICKSTART.md](QUICKSTART.md)
+- **Tech Stack & Build Info:** [`.github/copilot-instructions.md`](.github/copilot-instructions.md)
+- **Git Workflow:** [`.github/GIT_WORKFLOW.md`](.github/GIT_WORKFLOW.md)
+- **Troubleshooting:** [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
-## Essential Commands
+## Build & Development Commands
 
-### Local Development (Docker)
-
-The recommended approach is using Docker.
+### Docker (Recommended)
 
 ```bash
-# Initial setup & start dev server
+# Initial setup and start dev server
 docker compose pull && docker compose up
+
 # Site runs at http://localhost:8080
 
 # Rebuild after changing dependencies or Dockerfile
@@ -28,54 +23,138 @@ docker compose up --build
 
 # Stop containers and free port 8080
 docker compose down
+
+# Force complete rebuild
+docker compose up --build --force-recreate
 ```
 
-### Pre-Commit Checklist
+### Local Development (Ruby/Jekyll - Legacy)
+
+```bash
+bundle install
+pip install jupyter nbconvert
+bundle exec jekyll serve --port 4000
+# Visit http://localhost:4000
+```
+
+### Code Quality
+
+```bash
+# Install prettier (first time only)
+npm install --save-dev prettier @shopify/prettier-plugin-liquid
+
+# Format all files (MANDATORY before commit)
+npx prettier . --write
+
+# Verify formatting without modifying files
+npx prettier . --check
+```
+
+### Production Build
+
+```bash
+# Set JEKYLL_ENV=production for CSS/JS minification
+JEKYLL_ENV=production bundle exec jekyll build
+```
+
+## Pre-Commit Checklist
 
 Before every commit, you **must** run these steps:
 
-1.  **Format Code:**
-    ```bash
-    # (First time only)
-    npm install --save-dev prettier @shopify/prettier-plugin-liquid
-    # Format all files
-    npx prettier . --write
-    ```
-2.  **Build Locally & Verify:**
+1. **Format Code:** `npx prettier . --write`
+2. **Build Locally & Verify:** `docker compose up --build`
+3. **Verify site at http://localhost:8080** - Check navigation, pages, images, dark mode
 
-    ```bash
-    # Rebuild the site
-    docker compose up --build
+## Project Structure
 
-    # Verify by visiting http://localhost:8080.
-    # Check navigation, pages, images, and dark mode.
-    ```
+| Directory | Purpose |
+|-----------|---------|
+| `_bibliography/` | BibTeX bibliography (papers.bib) |
+| `_config.yml` | Primary site configuration |
+| `_data/` | YAML data files (socials, coauthors, cv, citations) |
+| `_includes/` | Reusable Liquid template components |
+| `_layouts/` | Page layout templates |
+| `_news/` | News/announcement entries |
+| `_pages/` | Static pages (about, cv, publications, projects) |
+| `_posts/` | Blog posts (format: YYYY-MM-DD-title.md) |
+| `_projects/` | Project showcase entries |
+| `_sass/` | SCSS stylesheets |
+| `_scripts/` | JavaScript files |
+| `_teachings/` | Course and teaching entries |
+| `assets/img/` | Images, profile pictures |
 
-## Critical Configuration
+## Code Style Guidelines
 
-When modifying `_config.yml`, these **must be updated together**:
+### General Principles
 
-- **Personal site:** `url: https://username.github.io` + `baseurl:` (empty)
-- **Project site:** `url: https://username.github.io` + `baseurl: /repo-name/`
-- **YAML errors:** Quote strings with special characters: `title: "My: Cool Site"`
+- **Use Prettier** - All code must be formatted with Prettier before commit. This is enforced by CI.
+- **Keep it consistent** - Follow existing patterns in the codebase.
+- **Test locally** - Always verify changes with `docker compose up` before committing.
 
-## Development Workflow
+### Liquid Templates
 
-- **Git & Commits:** For commit message format and Git practices, see [.github/GIT_WORKFLOW.md](.github/GIT_WORKFLOW.md).
-- **Code-Specific Instructions:** Consult the relevant instruction file for your code type.
+- 2-space indentation
+- Use whitespace control: `{{- -}}` to strip surrounding whitespace
+- Put whitespace between Liquid tags: `{% if condition %}` not `{%if condition%}`
+- Quote string attributes: `<a href="{{ url }}">`
+- Comment format: `{% comment %} comment text {% endcomment %}`
 
-| File Type                                     | Instruction File                                                                                |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Markdown content (`_posts/`, `_pages/`, etc.) | [markdown-content.instructions.md](.github/instructions/markdown-content.instructions.md)       |
-| YAML config (`_config.yml`, `_data/`)         | [yaml-configuration.instructions.md](.github/instructions/yaml-configuration.instructions.md)   |
-| BibTeX (`_bibliography/`)                     | [bibtex-bibliography.instructions.md](.github/instructions/bibtex-bibliography.instructions.md) |
-| Liquid templates (`_includes/`, `_layouts/`)  | [liquid-templates.instructions.md](.github/instructions/liquid-templates.instructions.md)       |
-| JavaScript (`_scripts/`)                      | [javascript-scripts.instructions.md](.github/instructions/javascript-scripts.instructions.md)   |
+Example:
+```liquid
+{%- if page.title -%}
+  <title>{{ page.title | escape }}</title>
+{%- endif -%}
+```
 
-## Common Issues
+### YAML Configuration
 
-For troubleshooting, see:
+- Quote strings with special characters: `title: "My: Cool Site"`
+- 2-space indentation
+- Use lowercase keys: `baseurl:` not `baseUrl:`
+- Boolean values: lowercase `true`/`false`
 
-- [Common Pitfalls & Workarounds](.github/copilot-instructions.md#common-pitfalls--workarounds) in copilot-instructions.md
-- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed solutions
-- [GitHub Issues](https://github.com/alshedivat/al-folio/issues) to search for your specific problem.
+### JavaScript
+
+- ES6+ syntax, 2-space indentation, use semicolons
+- Prefer `const` over `let`, avoid `var`
+- Use template literals: `` `string ${variable}` ``
+
+### CSS/SCSS
+
+- Use SCSS syntax, 2-space indentation
+- Follow BEM-like naming: `.block__element--modifier`
+- Use CSS variables for colors and spacing
+
+### Markdown Content
+
+- Use frontmatter at the top:
+```yaml
+---
+layout: post
+title: Post Title
+date: YYYY-MM-DD
+categories: category-name
+---
+```
+- Use ATX-style headers: `## Header`
+- Use fenced code blocks: ``` ```javascript ```
+
+## Common Pitfalls
+
+| Problem | Solution |
+|---------|----------|
+| YAML special chars error | Quote strings: `title: "My: Cool Site"` |
+| CSS/JS not loading | Check `url` + `baseurl` in `_config.yml` |
+| Port 8080 in use | `docker compose down` then `docker compose up` |
+| ImageMagick missing | `sudo apt-get install imagemagick` (Linux) |
+
+## CI/CD Pipeline
+
+GitHub Actions run on push/PR: **deploy.yml**, **prettier.yml** (mandatory), **broken-links.yml**, **axe.yml**, **codeql.yml**
+
+## Important Notes
+
+- **Trust these instructions** - They document the tested, working build process
+- **Always use Docker** for local development to match CI/CD
+- **Prettier is mandatory** - PRs will fail CI if not formatted
+- **Set JEKYLL_ENV=production** for production builds
