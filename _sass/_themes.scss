@@ -9,6 +9,7 @@
   --global-bg-color: #{v.$white-color};
   --global-code-bg-color: #{v.$code-bg-color-light};
   --global-text-color: #{v.$black-color};
+  --global-heading-color: #{v.$blue-color-dark};
   --global-text-color-light: #{v.$grey-color};
   --global-theme-color: #{v.$blue-color};
   --global-hover-color: #{v.$blue-color-dark};
@@ -78,7 +79,8 @@ html[data-theme="dark"] {
   color-scheme: dark;
   --global-bg-color: #{v.$grey-color-dark};
   --global-code-bg-color: #{v.$code-bg-color-dark};
-  --global-text-color: #{v.$grey-color-light};
+  --global-text-color: #{v.$white-color};
+  --global-heading-color: #{v.$blue-color};
   --global-text-color-light: #{v.$grey-color};
   --global-theme-color: #{v.$red-color};
   --global-hover-color: #{v.$red-color-dark};
