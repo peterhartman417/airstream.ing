@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://airstream.ing//sitemap.xml
+Sitemap: https://airstream.ing/sitemap.xml
