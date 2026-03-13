@@ -24,8 +24,10 @@ hr {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   color: var(--global-heading-color);
+  font-weight: 700;
 }
 
 table {
