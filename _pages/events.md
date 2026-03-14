@@ -37,4 +37,16 @@ nav_order: 6
 
 ---
 
-*Events listed are from the Arkansas Razorback Airstream Club. For more events, visit [Airstream Club International](https://airstreamclub.org/events).*
+### Missouri Greater Ozark Unit Events
+
+**April 3-7**: Ozarks State Park - Lake of the Ozarks. Camping for 4 nights with the Nelsons in site 158. Please let your host know you are coming.
+
+**June 4-7**: Joint Rally with Missouri Kansas Airstream Club - Petit Jean Mountain, AR. Contact Patti Kelly Host for information.
+
+**July 23-26**: 1st Annual Riverways Explorations - Pea Vine Road, Van Buren, MO. Make reservations at 573-323-4236. 50 amp electric only on loop 200 for 3 nights. Sites open January 23, 2026.
+
+**September 24-27**: Fall Rally - Details to follow.
+
+---
+
+*Events listed are from the Arkansas Razorback Airstream Club and Missouri Greater Ozark Unit. For more events, visit [Airstream Club International](https://airstreamclub.org/events).*
