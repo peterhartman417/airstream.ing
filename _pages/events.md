@@ -49,4 +49,4 @@ nav_order: 6
 
 ---
 
-*Events listed are from the Arkansas Razorback Airstream Club and Missouri Greater Ozark Unit. For more events, visit [Airstream Club International](https://airstreamclub.org/events).*
+*Events sourced from [Arkansas Razorback Airstream Club](https://airstreamclub.org/Arkansas-razorback/ar-events) and [Missouri Greater Ozark Unit](https://airstreamclub.org/events?from=&to=&type=-1&state=-1&club=46497&list=1). For more events, visit [Airstream Club International](https://airstreamclub.org/events).*
