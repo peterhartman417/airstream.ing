@@ -2,7 +2,7 @@
 layout: page
 title: 1966 Caravel
 description: Our 1966 Caravel restoration and adventures
-img: assets/img/caravel/000.jpg
+img: assets/img/caravel/001.jpg
 importance: 1
 category: 
 published: true
@@ -10,13 +10,13 @@ published: true
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/caravel/000.jpg" title="1966 Caravel" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/caravel/001.jpg" title="Caravel" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/caravel/001.jpg" title="1966 Caravel" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/caravel/002.jpg" title="Caravel" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/caravel/003.jpg" title="Caravel" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
