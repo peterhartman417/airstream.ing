@@ -57,7 +57,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "projects-1966-caravel",
+          title: '1966 Caravel',
+          description: "Our 1966 Caravel restoration and adventures",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1966-caravel/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
