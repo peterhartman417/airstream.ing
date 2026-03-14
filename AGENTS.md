@@ -10,12 +10,11 @@ This is a Jekyll-based academic website (al-folio theme). This document provides
 
 ## Build & Development Commands
 
-### Docker (Recommended)
+### Docker (Recommended - Always Use This)
 
 ```bash
 # Initial setup and start dev server
 docker compose pull && docker compose up
-
 # Site runs at http://localhost:8080
 
 # Rebuild after changing dependencies or Dockerfile
@@ -127,7 +126,7 @@ Example:
 
 ### Markdown Content
 
-- Use frontmatter at the top:
+- Use frontmatter at top:
 ```yaml
 ---
 layout: post

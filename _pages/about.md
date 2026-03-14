@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>14144</a>. Arkansas, Greater Ozarks, Vintage Airstream, Tin Can Tourists
 
 profile:
   align: right
