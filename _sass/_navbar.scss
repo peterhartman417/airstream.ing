@@ -55,17 +55,17 @@
     }
   }
 
-  .navbar-brand {
-    color: var(--global-text-color);
-  }
+   .navbar-brand {
+     color: var(--global-text-color);
+   }
 
-  .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+   .navbar-nav .nav-item .nav-link {
+     color: var(--global-text-color);
 
-    &:hover {
-      color: var(--global-hover-color);
-    }
-  }
+     &:hover {
+       color: var(--global-hover-color);
+     }
+   }
 
     .navbar-nav .nav-item.active > .nav-link,
     .navbar-brand.active {
@@ -77,10 +77,6 @@
         color: var(--global-hover-color);
       }
     }
-
-   .navbar-brand {
-     color: var(--global-text-color);
-   }
 
 .navbar-brand.social {
   padding-bottom: 0;
