@@ -7,11 +7,11 @@ tags: formatting images
 categories: sample-posts
 thumbnail: assets/img/9.jpg
 images:
-  - lightbox2: true
-  - photoswipe: true
-  - spotlight: true
-  - venobox: true
+  lightbox2: true
 published: false
+  photoswipe: true
+  spotlight: true
+  venobox: true
 ---
 
 The images in this post are all zoomable, arranged into different mini-galleries using different libraries.
